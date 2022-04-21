@@ -23,7 +23,8 @@ let size;
 
 request(url, (error, response, body) => {
   if (error) {
-    console.log(error, response.statusCode);
+    console.log("Error message: ", error, response && response.statusCode);
+    return;
   }
   let data = body;
   size = data.length;
@@ -32,13 +33,12 @@ request(url, (error, response, body) => {
    if (err) {
      console.log(err)
      return
-   } else {
-     console.log(`Downloaded and saved ${size} bytes to ${location}.`)
    }
+    console.log(`Downloaded and saved ${size} bytes to ${location}.`)
   });
 
 });
 
 ///this works!
 //took 30mins. Can work on it for another 30mins
-//try to add stretch AND make sure you're nesting correctly
+//try to add stretch - ERROR HANDLING etc
